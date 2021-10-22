@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<br lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+
+	<h1>Addition</h1>
+		<form action="http://localhost:8080/add" method="POST" target="add-result">
+			<input type="number" step="0.01" name="number1" placeholder="0" />
+			<input type="number" step="0.01" name="number2" placeholder="0" />
+
+			<button type="submit">Add Numbers</button>			
+		</form>
+		<iframe name="add-result" frameborder="0"> </iframe>		
+
+		<hr>	
+
+		<h1>Subtraction</h1>
+		<form action="http://localhost:8080/subtract" method="POST" target="sub-result">
+			<input type="number" step="0.01" name="number1" placeholder="0" />
+			<input type="number" step="0.01" name="number2" placeholder="0" />
+
+			<button type="submit">Subtract Numbers</button>
+		</form>
+		<iframe name="sub-result" frameborder="0"> </iframe>
+    <hr>
+
+		<h1>Multiplication</h1>
+		<form action="http://localhost:8080/multiply" method="POST" target="mlt-result">
+			<input type="number" step="0.01" name="number1" placeholder="0" />
+			<input type="number" step="0.01" name="number2" placeholder="0" />
+
+			<button type="submit">Multiply Numbers</button>
+		</form>
+		<iframe name="mlt-result" frameborder="0"> </iframe>
+		<hr>
+		
+		<h1>Division</h1>
+		<form action="http://localhost:8080/division" method="POST" target="dv-result">
+			<input type="number" step="0.01" name="number1" placeholder="0" />
+			<input type="number" step="0.01" name="number2" placeholder="0" />
+
+			<button type="submit">Division Numbers</button>
+		</form>
+		<iframe name="dv-result" frameborder="0"> </iframe>
+
+
+		<!-- the purpose of this iframe is to display the result from backend -->
+		
+	</body>
+</html>
