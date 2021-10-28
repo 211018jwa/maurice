@@ -10,7 +10,7 @@ public class ArithmaticService {
 
 			double sum = number1 + number2;
 
-			String result = "" + sum; 
+			String result = "RESULT: " + sum; 
 			return result;
 			
 		}
@@ -21,7 +21,7 @@ public class ArithmaticService {
 
 				double sub = Math.ceil(number1 - number2);
 
-				String result = "" + sub; 	
+				String result = "RESULT: " + sub; 	
 				return result;
 		}
 		//Setting up the method for multiplication	
@@ -31,7 +31,7 @@ public class ArithmaticService {
 
 				double multiplication = number1 * number2;
 
-				String result = "" + multiplication;
+				String result = "RESUT: " + multiplication;
    			    return result;
 		}
 		//Setting up the method for Division
@@ -40,7 +40,7 @@ public class ArithmaticService {
 				double number2 = Double.parseDouble(number2String);
 
 				double division =  Math.ceil(number1 / number2);
-				String result = "" + division; 	 
+				String result = "RESULT: " + division; 	 
 			    return result;
 		}
 

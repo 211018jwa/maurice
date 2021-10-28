@@ -14,10 +14,10 @@ public class Main {
 
 		driver.get("http://localhost:8080");
 
-		/************************************************************
+		/****************************************************************************
 		 * Locate the 2 input elements and button for adding numbers And location the
 		 * Button
-		 *************************************************************/
+		 ****************************************************************************/
 		WebElement addInput1 = driver.findElement(By.id("addId1"));
 		WebElement addInput2 = driver.findElement(By.id("addId2"));
 		WebElement addButton = driver.findElement(By.id("addButton"));
@@ -28,7 +28,7 @@ public class Main {
 
 		driver.switchTo().frame("add-result");
 
-		WebElement addOutput = driver.findElement(By.tagName("pre"));
+		WebElement addOutput = driver.findElement(By.tagName("pre"));			
 		
 		System.out.print("RESULT: ");
 		System.out.println("10.5 + 15.3 = " + addOutput.getText());
@@ -95,16 +95,16 @@ public class Main {
 		WebElement divOutput = driver.findElement(By.tagName("pre"));
 		System.out.println("\t23.2 / 11.7 = " + divOutput.getText());
 
+		driver.switchTo().defaultContent();
+		
+		
 		// to pause
-		Thread.sleep(5000);
+		Thread.sleep(1000);
 		
-		// Close the window
+		// Close the window	
 		
-			
-		driver.quit();
+		driver.quit();			
 		
-		
-	  System.out.println("Result: " + addInput1.getText());
 	
 
 	}
