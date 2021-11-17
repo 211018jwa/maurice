@@ -43,12 +43,15 @@ public class AccountService {
 	//ADDING AN ACCOUNT
 	public Account addingAccount(AddOrUpdateAccountDTO dto) throws InvalidParameterException, SQLException, AccountNotFoundException {
 		
-		if(dto.getAccountBalance() <= 0) {
-			throw new InvalidParameterException("Balance can't less or equal 0");
+		
+		if(dto.getAccountType().trim().equals("")) {
+			throw new InvalidParameterException("Account type can not be blank");
 		}
-		if(dto.getAccountType().trim().equals("") || dto.getAccountNumber().trim().equals("")) {
-			throw new InvalidParameterException("Field can not be blank");
+		
+		if(dto.getAccountNumber().trim().equals("")) {
+			throw new InvalidParameterException("Account number can not be blank");
 		}
+		
 		
 		Set<String> validStatus = new HashSet<>();		
 		validStatus.add("Active");
@@ -63,12 +66,14 @@ public class AccountService {
 			throw new InvalidParameterException("You entered a wrong status value");
 		}
 		
+		if(dto.getAccountBalance() <= 0) {
+			throw new InvalidParameterException("Balance can not be negative");
+		}
+		
 		//Trimming the leading and trailing whitespace
 		dto.setAccountType(dto.getAccountType().trim());
-		dto.setAccountBalance(dto.getAccountBalance());
-		dto.setAccountNumber(dto.getAccountNumber().trim());
-		dto.setClientId(dto.getClientId());
-		dto.setStatus(dto.getStatus().trim());
+	
+		dto.setAccountNumber(dto.getAccountNumber().trim());	
 		
 		Account insertedAccount = this.accountDAO.addAccount(dto);
 		
@@ -128,7 +133,7 @@ public class AccountService {
 				throw new AccountNotFoundException("Account with id " + id + "is not found, can't be deleted");
 			}
 			
-		//	this.accountDAO.deleteAccountById(id);
+			this.accountDAO.deleteAccountById(id);
 		}catch (NumberFormatException e) {
 			throw new InvalidParameterException("Id supplied is not an int");
 		}

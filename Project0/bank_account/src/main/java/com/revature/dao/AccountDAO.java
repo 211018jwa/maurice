@@ -5,26 +5,17 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.slf4j.LoggerFactory;
-import org.slf4j.Logger;
-
 import com.revature.dto.AddOrUpdateAccountDTO;
 import com.revature.exception.AccountNotFoundException;
 import com.revature.exception.InvalidParameterException;
 import com.revature.model.Account;
 import com.revature.utility.JDBCUtility;
-
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class AccountDAO {
 
-	Logger logger = LoggerFactory.getLogger(AccountDAO.class);
-	
-	
-	
 	// Adding an account
 	public Account addAccount(AddOrUpdateAccountDTO account)
 			throws SQLException, AccountNotFoundException, InvalidParameterException {
@@ -176,7 +167,7 @@ public class AccountDAO {
 		
 		
 		try (Connection conn = JDBCUtility.getConnection()) {
-			String sql = "SELECT * from account where client_id = ?";
+			String sql = "SELECT * from account where account_id = ?";
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);
@@ -193,14 +184,14 @@ public class AccountDAO {
 	}
 
 	// Delete account by id
-	public void deleteAccountByClientId(int clientId) throws SQLException, AccountNotFoundException, InvalidParameterException {
+	public void deleteAccountById(int accountId) throws SQLException, AccountNotFoundException, InvalidParameterException {
 
 		try (Connection con = JDBCUtility.getConnection()) {
-			String sql = "DELETE FROM account WHERE client_id = ?";
+			String sql = "DELETE FROM account WHERE account_id = ?";
 
 			PreparedStatement pstmt = con.prepareStatement(sql);
 
-			pstmt.setInt(1, clientId);
+			pstmt.setInt(1, accountId);
 
 			pstmt.executeUpdate();
 			

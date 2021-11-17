@@ -133,7 +133,8 @@ public class ClientController {
 		this.clientService.deleteClientById(id);	
 		
 		
-		ctx.json("Client with id " + id + " was deleted");
+		ctx.json("Client with an id " + id + " was deleted");
+		
 	};
 	
 	public void registerEndpoints(Javalin app) {

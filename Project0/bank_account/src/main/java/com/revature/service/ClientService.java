@@ -170,10 +170,18 @@ public class ClientService {
 		 * This dto will contain firstName,lastName,phoneNumber and age Also checking if
 		 * the fields are empty.
 		 ***********************************************************************/
-		if (dto.getFirstName().trim().equals("") || dto.getLastName().trim().equals("")
-				|| dto.getPhoneNumber().trim().equals("")) {
-			throw new InvalidParameterException("Field can not be blank");
+		if (dto.getFirstName().trim().equals("")) {
+			throw new InvalidParameterException("First name field can not be blank");
+		}	
+				
+		if( dto.getLastName().trim().equals("")) {
+			throw new InvalidParameterException("Last name field can not be blank");
 		}
+		
+		if ( dto.getPhoneNumber().trim().equals("")) {				
+			throw new InvalidParameterException("Phone number field can not be blank");
+		}
+		
 		// Age can not be negative or lesse than 18
 		if (dto.getClientAge() < 0) {
 			throw new InvalidParameterException("Age cannot be lessa than 0");

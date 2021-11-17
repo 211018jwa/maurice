@@ -55,7 +55,7 @@
 				<configuration>
 					<archive>
 						<manifest>
-							<mainClass>com.revature.demo.Application</mainClass>
+							<mainClass>com.revature.app.Application</mainClass>
 						</manifest>
 					</archive>
 					<descriptorRefs>

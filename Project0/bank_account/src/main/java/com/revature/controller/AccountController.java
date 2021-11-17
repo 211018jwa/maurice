@@ -31,6 +31,7 @@ public class AccountController {
 		Account accountThatWasUpdated = this.accountService.updateAccountBalance(a_id, c_id, dto.getAccountBalance());
 
 		ctx.json(accountThatWasUpdated);
+		
 	};
 
 	// Getting all the accounts
@@ -38,7 +39,7 @@ public class AccountController {
 		List<Account> accounts = this.accountService.getAllAccounts();
 
 		ctx.json(accounts);
-		ctx.status(400);
+		
 	};
 
 	// Deleting account by Id
@@ -57,8 +58,7 @@ public class AccountController {
 		
 		Account account = this.accountService.addingAccount(dto);
 		
-		ctx.json(account);
-		ctx.status(404);
+		ctx.json(account);		
 	};
 	
 	//Getting account by Client Id
